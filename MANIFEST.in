@@ -1,0 +1,18 @@
+include MANIFEST.in
+include requirements.txt
+include *.json
+include *.md
+include *.py
+include *.txt
+recursive-include hamriyah_customs *.css
+recursive-include hamriyah_customs *.csv
+recursive-include hamriyah_customs *.html
+recursive-include hamriyah_customs *.ico
+recursive-include hamriyah_customs *.js
+recursive-include hamriyah_customs *.json
+recursive-include hamriyah_customs *.md
+recursive-include hamriyah_customs *.png
+recursive-include hamriyah_customs *.py
+recursive-include hamriyah_customs *.svg
+recursive-include hamriyah_customs *.txt
+recursive-exclude hamriyah_customs *.pyc
