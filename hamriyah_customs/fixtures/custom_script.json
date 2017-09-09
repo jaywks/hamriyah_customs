@@ -3,9 +3,9 @@
   "docstatus": 0, 
   "doctype": "Custom Script", 
   "dt": "Hamriyah Customs", 
-  "modified": "2017-01-09 22:55:35.640658", 
+  "modified": "2017-09-07 09:20:37.461979", 
   "name": "Hamriyah Customs-Client", 
-  "script": "//fetch net_weight from item to unit_weight\ncur_frm.add_fetch(\"item_code\",\"net_weight\",\"unit_weight\");\ncur_frm.add_fetch(\"item_code\",\"description_ar\",\"description\");", 
+  "script": "//fetch net_weight from item to unit_weight\ncur_frm.add_fetch(\"item_code\",\"net_weight\",\"unit_weight\");\ncur_frm.add_fetch(\"item_code\",\"description_ar\",\"description\");\ncur_frm.add_fetch(\"item_code\",\"description_custom_en\",\"description_custom_en\");", 
   "script_type": "Client"
  }
 ]
