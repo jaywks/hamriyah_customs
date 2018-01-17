@@ -63,8 +63,28 @@ frappe.ui.form.on("Hamriyah Customs", "customer", function(frm, cdt, cdn) {
   })
 
 });
-
-
+//fetch  consignee address details
+frappe.ui.form.on("Hamriyah Customs", "consignee_address", function(frm) {
+  frappe.call({
+    "method": "frappe.client.get",
+    args: {
+      doctype: "Address",
+      name: frm.doc.consignee_address
+    },
+    callback: function(data) {
+      frappe.model.set_value(frm.doctype, frm.docname, "consignee_address_display",
+        data.message.address_line1 +
+        (data.message.address_line2 ? ("\n" + data.message.address_line2) : "") +
+        (data.message.city ? ("\n" + data.message.city) : "") +
+        (data.message.state ? (", " + data.message.state) : "") +
+        (data.message.pincode ? (" " + data.message.pincode) : "") +
+        (data.message.country ? ("\n" + data.message.country) : "") +
+        (data.message.phone ? ("\n" + data.message.phone) : "") +
+        (data.message.fax ? ("\n" + data.message.fax) : "")
+      )
+    }
+  })
+});
 /*frappe.ui.form.on("Hamriyah Customs", {
 	consignee_address: function(frm) {
 		erpnext.utils.get_address_display(this.frm, "consignee_address", "consignee_address_display");
@@ -140,7 +160,7 @@ frappe.ui.form.on("Hamriyah Customs", "delivery_note", function(frm) {
 });
 
 
-//fetch Item Details
+//fetch Item Details -manual re-select item_code by mouse
 cur_frm.add_fetch("item_code", "ham_weight", "unit_weight");
 cur_frm.add_fetch("item_code", "description_ar", "description");
 cur_frm.add_fetch("item_code", "description_custom_en", "description_custom_en");
